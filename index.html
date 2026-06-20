@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>House of Qalakari · Meta Deep Dive</title>
+<title>House of Qalakari · Cross-Channel MTD Comparison · June vs May 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -23,67 +23,26 @@ body{background:
   color:var(--paper);font-family:var(--sans);line-height:1.55;padding:34px 20px 80px}
 .wrap{max-width:1080px;margin:0 auto}
 .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--saffron);margin-bottom:10px}
-h1{font-family:var(--disp);font-weight:900;font-size:clamp(30px,5.4vw,52px);line-height:1.02;letter-spacing:-.01em}
+h1{font-family:var(--disp);font-weight:900;font-size:clamp(30px,5.4vw,50px);line-height:1.03;letter-spacing:-.01em}
 h1 em{font-style:italic;color:var(--saffron2)}
-.sub{color:var(--muted);max-width:680px;margin-top:14px;font-size:15px}
+.sub{color:var(--muted);max-width:720px;margin-top:14px;font-size:15px}
 .meta{font-family:var(--mono);font-size:11.5px;color:var(--dim);margin-top:18px;display:flex;gap:18px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:14px}
 .meta b{color:var(--muted);font-weight:500}
-
 h2{font-family:var(--disp);font-weight:600;font-size:25px;margin:52px 0 6px;letter-spacing:-.01em}
 h2 .n{font-family:var(--mono);font-size:13px;color:var(--saffron);vertical-align:super;margin-right:8px}
-.lead{color:var(--muted);font-size:14.5px;max-width:760px;margin-bottom:22px}
-
-/* verdict */
-.verdict{background:linear-gradient(180deg,var(--ink2),var(--card));border:1px solid var(--line);
-  border-left:3px solid var(--red);border-radius:14px;padding:24px 26px;margin-top:30px}
+.lead{color:var(--muted);font-size:14.5px;max-width:780px;margin-bottom:22px}
+.verdict{background:linear-gradient(180deg,var(--ink2),var(--card));border:1px solid var(--line);border-left:3px solid var(--saffron);border-radius:14px;padding:24px 26px;margin-top:30px}
 .verdict h3{font-family:var(--disp);font-size:20px;font-weight:600;margin-bottom:8px}
-.verdict p{color:var(--muted);font-size:14.5px}
+.verdict p{color:var(--muted);font-size:14.5px;margin-bottom:8px}
 .verdict .big{font-family:var(--mono);color:var(--paper)}
-
-/* kpi grid */
-.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:22px}
-.kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 16px}
-.kpi .l{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
-.kpi .v{font-family:var(--mono);font-size:23px;font-weight:600;margin-top:8px}
-.kpi .d{font-family:var(--mono);font-size:11.5px;margin-top:5px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+.cardx{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.cardx .ch{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);display:flex;justify-content:space-between;align-items:center}
+.dot{width:9px;height:9px;border-radius:50%;display:inline-block}
+.cardx .v{font-family:var(--mono);font-size:27px;font-weight:600;margin-top:10px}
+.cardx .sm{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin-top:4px}
+.cardx .d{font-family:var(--mono);font-size:12px;margin-top:8px}
 .up{color:var(--green)} .down{color:var(--red)} .flat{color:var(--muted)}
-.kpi .was{color:var(--dim);font-size:10.5px;font-family:var(--mono)}
-
-/* findings */
-.finds{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}
-.find{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;position:relative}
-.find::before{content:attr(data-n);position:absolute;top:14px;right:16px;font-family:var(--disp);font-weight:900;font-size:30px;color:var(--line)}
-.find .t{font-family:var(--disp);font-size:17px;font-weight:600;margin-bottom:6px;padding-right:30px}
-.find .t.bad{color:var(--saffron2)} .find .t.good{color:var(--teal)}
-.find p{color:var(--muted);font-size:13.5px}
-.find .stat{font-family:var(--mono);color:var(--paper)}
-
-/* collection funnel cards */
-.coll{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-top:16px}
-.coll-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:16px}
-.coll-head .nm{font-family:var(--disp);font-size:20px;font-weight:600}
-.coll-head .tag{font-family:var(--mono);font-size:11px;padding:3px 9px;border-radius:20px;border:1px solid var(--line);color:var(--muted)}
-.tag.win{color:var(--teal);border-color:rgba(84,194,168,.4)}
-.tag.bleed{color:var(--red);border-color:rgba(224,106,90,.4)}
-.coll-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
-.period .ph{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:12px;display:flex;justify-content:space-between}
-.period .ph .roas{color:var(--saffron2)}
-.funnel{display:flex;flex-direction:column;gap:3px}
-.step{position:relative;height:34px;border-radius:6px;display:flex;align-items:center;padding:0 11px;
-  background:linear-gradient(90deg,rgba(232,163,61,.20),rgba(232,163,61,.06));overflow:hidden}
-.step.j{background:linear-gradient(90deg,rgba(124,132,232,.22),rgba(124,132,232,.06))}
-.step .fill{position:absolute;inset:0;background:var(--saffron);opacity:.16;border-radius:6px}
-.step.j .fill{background:var(--indigo);opacity:.20}
-.step .sl{font-family:var(--mono);font-size:11px;color:var(--paper);z-index:1}
-.step .sv{font-family:var(--mono);font-size:12px;font-weight:600;margin-left:auto;z-index:1}
-.rate{font-family:var(--mono);font-size:10.5px;color:var(--dim);text-align:right;padding:1px 11px 3px 0;height:15px}
-.rate b{color:var(--saffron2)}
-.period.j .rate b{color:var(--indigo)}
-
-.statrow{display:flex;gap:14px;margin-top:14px;flex-wrap:wrap}
-.statrow .s{font-family:var(--mono);font-size:11px;color:var(--dim)}
-.statrow .s b{color:var(--paper);font-weight:500}
-
 table{width:100%;border-collapse:collapse;margin-top:16px;font-family:var(--mono);font-size:12.5px}
 th,td{text-align:right;padding:9px 10px;border-bottom:1px solid var(--line)}
 th:first-child,td:first-child{text-align:left}
@@ -93,249 +52,123 @@ tr:hover td{background:rgba(255,255,255,.02)}
 .bar{display:inline-block;height:7px;border-radius:4px;background:var(--saffron);vertical-align:middle;margin-right:7px}
 .bar.j{background:var(--indigo)}
 .muted{color:var(--dim)}
-
-/* persona */
-.pcard{background:linear-gradient(180deg,var(--ink2),var(--card));border:1px solid var(--line);border-radius:14px;padding:24px 26px;margin-top:16px;display:grid;grid-template-columns:200px 1fr;gap:26px;align-items:start}
-.pavatar{text-align:center}
-.pavatar .ring{width:120px;height:120px;border-radius:50%;margin:0 auto 12px;
-  background:radial-gradient(circle at 35% 30%,var(--saffron2),var(--saffron) 55%,#a9701f);
-  display:flex;align-items:center;justify-content:center;font-family:var(--disp);font-weight:900;font-size:40px;color:#2a1d09}
-.pavatar .pn{font-family:var(--disp);font-size:19px;font-weight:600}
-.pavatar .pr{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:3px}
-.ptags{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
-.pt{font-family:var(--mono);font-size:10.5px;padding:4px 9px;border-radius:20px;background:rgba(232,163,61,.10);border:1px solid var(--line);color:var(--saffron2)}
-.pbody p{color:var(--muted);font-size:14px;margin-bottom:12px}
-.pbody .alert{font-size:13.5px;color:var(--paper);background:rgba(224,106,90,.10);border:1px solid rgba(224,106,90,.3);border-radius:10px;padding:12px 14px}
-
 .note{font-family:var(--mono);font-size:11.5px;color:var(--dim);background:var(--ink2);border:1px dashed var(--line);border-radius:10px;padding:14px 16px;margin-top:14px;line-height:1.7}
+.alert{font-size:13.5px;color:var(--paper);background:rgba(224,106,90,.10);border:1px solid rgba(224,106,90,.3);border-radius:12px;padding:16px 18px;margin-top:18px}
+.alert b{color:var(--red)}
 .foot{margin-top:54px;border-top:1px solid var(--line);padding-top:16px;font-family:var(--mono);font-size:11px;color:var(--dim);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
-@media(max-width:780px){.kpis{grid-template-columns:repeat(2,1fr)}.finds{grid-template-columns:1fr}.coll-grid{grid-template-columns:1fr}.pcard{grid-template-columns:1fr}}
+@media(max-width:780px){.cards{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <div class="kicker">House of Qalakari · Meta Ads · Performance Diagnosis</div>
-  <h1>Sales didn't slow down.<br><em>They moved out of the funnel.</em></h1>
-  <p class="sub">A like-for-like read of the Meta account comparing <b>20–31 May</b> against <b>1–5 June</b>: which collection pages we served, the full funnel for each, and who is actually clicking. Spend per day is flat — but purchases per day are down by half, and the leak is below the cart.</p>
+  <div class="kicker">House of Qalakari · Cross-Channel Performance · Client Review</div>
+  <h1>Three channels, one window.<br><em>June vs May, month-to-date.</em></h1>
+  <p class="sub">A like-for-like <b>month-to-date</b> comparison — <b>1–19 June vs 1–19 May 2026</b> — across Meta Ads, Google Ads, and the Shopify store, then a Meta collection-level view by destination URL. Spend, CPM, CTR, clicks, add-to-cart, purchases and ROAS for each.</p>
   <div class="meta">
-    <span><b>Account</b> 722590780892082</span>
-    <span><b>Windows</b> 20–31 May (12d) vs 1–5 Jun (5d)</span>
-    <span><b>Attribution</b> 7d-click / 1d-view</span>
-    <span><b>Source</b> Windsor.ai · live pull</span>
+    <span><b>Windows</b> 1–19 Jun vs 1–19 May 2026</span>
+    <span><b>Meta</b> 722590780892082 · 7d-click/1d-view</span>
+    <span><b>Google</b> 404-716-0856 · last-click</span>
+    <span><b>Shopify</b> housee-of-qalakarii</span>
+    <span><b>Source</b> Windsor.ai live pull</span>
   </div>
 
-  <!-- VERDICT -->
   <div class="verdict">
     <h3>The one-line read</h3>
-    <p>Top of funnel is intact — <span class="big">clicks/day +2.6%</span>, <span class="big">ATC-rate even held</span>. What broke is <b>cart → purchase</b> (<span class="big">25.5% → 12.5%</span>) and <b>budget mix</b>: more money pushed into the weakest collection (Cotton Trending), while the only profitable one (Qala Rajasthani / Bagru, ROAS 1.16) was starved. Net: <span class="big">purchases/day −52%, revenue/day −45%</span> on <b>higher</b> daily spend.</p>
+    <p>Blended ad spend is roughly flat (<span class="big">₹1.07L → ₹1.02L, −4%</span>) but the mix shifted hard: <b>Meta scaled +11%</b> while <b>Google pulled back −33%</b>. Meta efficiency fell (<span class="big">ROAS 1.75 → 1.13</span>) as budget concentrated into Cotton Trending; Google's last-click ROAS rose (<span class="big">15.4 → 29.1</span>) on lower spend. These two ROAS figures describe the <b>same</b> Shopify orders from different angles — so the real scoreboard is store revenue, reconciled below.</p>
   </div>
 
-  <!-- KPIs -->
-  <h2><span class="n">01</span>Account scorecard</h2>
-  <p class="lead">Raw totals favour May because it has 12 days vs June's 5. The per-day column is the fair comparison — and it's where the damage shows.</p>
-  <div class="kpis" id="kpis"></div>
-  <div class="note"><b>Per-day, normalised:</b> Spend/day ₹3,660 → ₹3,970 (<span class="up">+8.4%</span>) &nbsp;·&nbsp; Clicks/day 348 → 357 (<span class="up">+2.6%</span>) &nbsp;·&nbsp; Purchases/day 2.08 → 1.00 (<span class="down">−52%</span>) &nbsp;·&nbsp; Revenue/day ₹3,229 → ₹1,770 (<span class="down">−45%</span>). Cost per purchase doubled: ₹1,757 → ₹3,970.</div>
+  <h2><span class="n">01</span>Channel scorecard — MTD</h2>
+  <p class="lead">Each platform's own reported numbers for the two windows. Meta and Google both attribute revenue to overlapping orders, so their ROAS is read per-channel, not summed.</p>
 
-  <!-- FINDINGS -->
-  <h2><span class="n">02</span>What actually changed</h2>
-  <p class="lead">Five structural shifts between the two windows, ranked by impact on sales.</p>
-  <div class="finds">
-    <div class="find" data-n="1"><div class="t bad">Cart-to-purchase halved</div><p>Add-to-cart held up (<span class="stat">3.3% → 4.1%</span> of landing views) but purchases per cart collapsed from <span class="stat">25.5% → 12.5%</span>. People still want it; checkout/trust is where they fall off — a site/checkout issue, not a creative one.</p></div>
-    <div class="find" data-n="2"><div class="t bad">Budget piled into the weakest page</div><p>Cotton Trending rose from <span class="stat">39% → 52%</span> of spend while its ROAS fell <span class="stat">1.06 → 0.32</span> and purchases dropped <span class="stat">11 → 2</span>. The biggest bet went on the worst-converting collection.</p></div>
-    <div class="find" data-n="3"><div class="t good">The winner got starved</div><p>Qala Rajasthani (Bagru) is the <b>only</b> collection above breakeven in June (<span class="stat">ROAS 1.16</span>), yet its budget share fell <span class="stat">27% → 18%</span>. This is the page to scale, not cut.</p></div>
-    <div class="find" data-n="4"><div class="t bad">A boost campaign is polluting the data</div><p>New "Post boosting – One exhibition" burned <span class="stat">₹1,058</span> for <span class="stat">87.7k impressions</span> at <span class="stat">0.42% CTR</span>, zero landing views, zero sales. It's why account CPM/CTR look "better" — pure vanity, drop it from sales reporting.</p></div>
-    <div class="find" data-n="5"><div class="t bad">~17% of June budget in non-converting tests</div><p>Andromeda_testing (₹2,365, 0 sales) + the boost (₹1,058) = ₹3.4k with no purchases. In May, near-100% of spend sat in proven sales campaigns. Testing is fine — but not at this share during a sales dip.</p></div>
-    <div class="find" data-n="6"><div class="t bad">Mulmul squeezed on a rising CPM</div><p>Mulmul Cotton Banarasi share fell <span class="stat">33% → 21%</span>, CPM jumped <span class="stat">₹412 → ₹581</span> (+41%), purchases <span class="stat">7 → 1</span>. It went quiet right as costs rose against it.</p></div>
-  </div>
-
-  <!-- FUNNELS -->
-  <h2><span class="n">03</span>Funnel by collection page</h2>
-  <p class="lead">Each ad's destination URL mapped to its Shopify collection. Funnel = Clicks → Landing Page Views → Add to Cart → Purchase, with step-conversion %. Saffron = May, indigo = June. Minor pages (Silk, Cotton Saree, Search, Boost) are summarised in the table below.</p>
-  <div id="colls"></div>
-
-  <h3 style="font-family:var(--disp);font-size:18px;font-weight:600;margin:26px 0 0">All destinations — full metric table</h3>
-  <div style="overflow-x:auto"><table id="bigtable"></table></div>
-  <div class="note"><b>ATC%</b> = Add-to-Cart ÷ Landing Page Views. &nbsp; <b>Pur%</b> = Purchases ÷ Add-to-Cart (cart conversion). &nbsp; Two pages are misrouted: a <b>/search?q=mulmul</b> link and an <b>FB Instant Experience</b> — both leak spend to dead ends (0 ATC, 0 sales). Fix these to point at the Mulmul / Silk collections.</div>
-
-  <!-- PERSONA -->
-  <h2><span class="n">04</span>Who is clicking — the persona</h2>
-  <p class="lead">Built from age × gender × geography on click volume and conversion. The picture is remarkably stable across both months — the audience didn't change, its <i>buying</i> did.</p>
-
-  <div class="pcard">
-    <div class="pavatar">
-      <div class="ring">M</div>
-      <div class="pn">"Meera"</div>
-      <div class="pr">Core buyer · ~70% of sales</div>
-      <div class="ptags">
-        <span class="pt">Woman 45–65+</span>
-        <span class="pt">Mumbai / Bengaluru</span>
-        <span class="pt">Mobile FB</span>
-        <span class="pt">Value cotton sarees</span>
-      </div>
+  <div class="cards">
+    <div class="cardx">
+      <div class="ch"><span>Meta Ads</span><span class="dot" style="background:var(--saffron)"></span></div>
+      <div class="v">1.75 → 1.13</div>
+      <div class="sm">ROAS · 7d-click/1d-view</div>
+      <div class="d down">▼ 35% · spend ₹70.5k → ₹78.0k</div>
     </div>
-    <div class="pbody">
-      <p>Women aged <b>45–65+</b> drive ~62–69% of all clicks and the large majority of purchases. They click at the highest rates (CTR 4.5–6.3% in May) and respond to cotton/mulmul daily-wear collections. Younger women (18–34) and all male segments together take ~30% of clicks but convert near zero — recurring spend that should be trimmed via exclusions.</p>
-      <p>Geographically it's two cities: <b>Maharashtra (Mumbai) ~43–53%</b> and <b>Karnataka (Bengaluru) ~27–42%</b> of clicks — together ~80%. South-India states (TN, Telangana, AP, Kerala) make up most of the rest.</p>
-      <div class="alert"><b>The real signal:</b> "Meera" didn't leave — she stopped buying. The 45–54 women drove 7 purchases in May and <b>0</b> in June; 55–64 women fell 9 → 1. Same audience, same clicks, but the cart→checkout step is failing them. That points squarely at site/checkout/trust, reinforced by the cart-conversion drop above.</div>
+    <div class="cardx">
+      <div class="ch"><span>Google Ads</span><span class="dot" style="background:var(--indigo)"></span></div>
+      <div class="v">15.4 → 29.1</div>
+      <div class="sm">ROAS · last-click</div>
+      <div class="d up">▲ 89% · spend ₹36.1k → ₹24.0k</div>
+    </div>
+    <div class="cardx">
+      <div class="ch"><span>Shopify</span><span class="dot" style="background:var(--teal)"></span></div>
+      <div class="v">~51 orders</div>
+      <div class="sm">Placed orders, Jun 1–19</div>
+      <div class="d flat">net revenue — to reconcile</div>
     </div>
   </div>
 
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px" class="pgrid">
-    <div class="coll"><div style="font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:6px">Age × Gender — click share</div><div style="overflow-x:auto"><table id="agtable"></table></div></div>
-    <div class="coll"><div style="font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:6px">Geography — click share</div><div style="overflow-x:auto"><table id="geotable"></table></div></div>
-  </div>
-  <div class="note"><b>Caveat on June geography:</b> Karnataka shows 97.9k impressions at ₹58 CPM and 0.76% CTR — that's the boost campaign dumping awareness impressions into Bengaluru, not real shopping intent. Excluding it, Karnataka's sales-traffic profile looks like May.</div>
+  <div style="overflow-x:auto"><table>
+  <tr><th>Metric</th><th>Meta · May</th><th>Meta · Jun</th><th>Google · May</th><th>Google · Jun</th></tr>
+  <tr><td class="nm">Spend ₹</td><td>70,514</td><td>78,047</td><td>36,059</td><td>24,032</td></tr>
+  <tr><td class="nm">CPM ₹</td><td>394</td><td>283*</td><td>77</td><td>70</td></tr>
+  <tr><td class="nm">CTR</td><td>4.45%</td><td>2.85%*</td><td>1.97%</td><td>2.06%</td></tr>
+  <tr><td class="nm">Clicks</td><td>7,967</td><td>7,863</td><td>9,209</td><td>7,123</td></tr>
+  <tr><td class="nm">Add to cart</td><td>301</td><td>217</td><td class="muted">n/a</td><td class="muted">n/a</td></tr>
+  <tr><td class="nm">Purchases / conv.</td><td>59</td><td>47</td><td>71</td><td>90</td></tr>
+  <tr><td class="nm">Attributed revenue ₹</td><td>123,574</td><td>88,420</td><td>554,114</td><td>699,190</td></tr>
+  <tr><td class="nm">ROAS</td><td style="color:var(--green)">1.75</td><td style="color:var(--green)">1.13</td><td style="color:var(--green)">15.37</td><td style="color:var(--green)">29.09</td></tr>
+  </table></div>
+  <div class="note">*June Meta CPM/CTR are dragged down by a ₹1,059 "boost" campaign (87.7k impressions, 0 sales). <b>Ex-boost June: CPM ≈ ₹409, CTR ≈ 3.98%</b> — in line with May. Google does not expose add-to-cart without conversion-action segmentation. "Purchases" for Google = conversions (last-click).</div>
 
-  <!-- ACTIONS -->
-  <h2><span class="n">05</span>What to do this week</h2>
-  <div class="finds">
-    <div class="find" data-n="A"><div class="t good">Audit checkout, not creatives</div><p>The drop is cart→purchase. Test the live checkout on mobile: COD availability, payment gateway errors, shipping fees revealed late, trust badges. This is the single highest-leverage fix.</p></div>
-    <div class="find" data-n="B"><div class="t good">Re-weight to Bagru + Mulmul</div><p>Move budget out of Cotton Trending (ROAS 0.32) into Qala Rajasthani (1.16) and rebuild Mulmul. Let the proven winner lead.</p></div>
-    <div class="find" data-n="C"><div class="t good">Kill the waste</div><p>Pause the "One exhibition" boost and pause/cap Andromeda_testing until the sales campaigns are stable. Recovers ~₹3.4k/5d of zero-return spend.</p></div>
-    <div class="find" data-n="D"><div class="t good">Fix the broken landing pages</div><p>Re-point the <span class="stat">/search?q=mulmul</span> ad and the FB Instant Experience ad to their proper collection pages — they currently convert nothing.</p></div>
+  <div class="alert"><b>Read the two ROAS figures together, not added.</b> Meta-attributed revenue (₹88k) + Google-attributed value (₹699k) ≈ ₹787k in June — far above what the store actually books. Both platforms claim credit for largely the same Shopify orders (Google last-click catches the bottom of the funnel Meta's prospecting opened). The true blended return = <b>Shopify net revenue ÷ total ad spend (₹1.02L)</b>; that Shopify figure needs a clean refund-netted pull to finalise (flagged below).</div>
+
+  <h2><span class="n">02</span>Blended spend &amp; the attribution gap</h2>
+  <p class="lead">What the business actually spent, and why the channel revenues can't be added.</p>
+  <div style="overflow-x:auto"><table>
+  <tr><th>Measure</th><th>May 1–19</th><th>Jun 1–19</th><th>Δ</th></tr>
+  <tr><td class="nm">Meta spend ₹</td><td>70,514</td><td>78,047</td><td style="color:var(--saffron2)">+11%</td></tr>
+  <tr><td class="nm">Google spend ₹</td><td>36,059</td><td>24,032</td><td style="color:var(--red)">−33%</td></tr>
+  <tr><td class="nm">Blended ad spend ₹</td><td>106,573</td><td>102,079</td><td style="color:var(--green)">−4%</td></tr>
+  <tr><td class="nm">Meta + Google attributed rev ₹</td><td>677,688</td><td>787,610</td><td class="muted">overlapping ⚠</td></tr>
+  <tr><td class="nm">Shopify net revenue ₹</td><td class="muted">to reconcile</td><td class="muted">to reconcile</td><td class="muted">—</td></tr>
+  <tr><td class="nm">True blended ROAS</td><td class="muted">pending Shopify</td><td class="muted">pending Shopify</td><td class="muted">—</td></tr>
+  </table></div>
+  <div class="note"><b>Why "to reconcile":</b> Shopify returns one row per order with refund rows mixed in as negatives, so a trustworthy net-revenue total must be summed programmatically (not by hand). June 1–19 shows ~51 placed orders with ~15 in-window refund/return events. This is the single figure to finalise before quoting a true blended ROAS to the client.</div>
+
+  <h2><span class="n">03</span>Meta collection view — by destination URL (June 1–19)</h2>
+  <p class="lead">Each Meta ad's destination URL mapped to its Shopify collection. This is where the June efficiency story lives.</p>
+  <div style="overflow-x:auto"><table>
+  <tr><th>Collection</th><th>Spend ₹</th><th>CPM ₹</th><th>CTR</th><th>Clicks</th><th>ATC</th><th>Pur</th><th>ROAS</th></tr>
+  <tr><td class="nm">Cotton Trending</td><td>32,089</td><td>375</td><td>3.92%</td><td>3,359</td><td>114</td><td>27</td><td style="color:var(--green)">1.61</td></tr>
+  <tr><td class="nm">Qala Rajasthani (Bagru)</td><td>17,926</td><td>406</td><td>3.53%</td><td>1,556</td><td>46</td><td>9</td><td style="color:var(--saffron2)">0.79</td></tr>
+  <tr><td class="nm">Mulmul Cotton Banarasi</td><td>15,256</td><td>447</td><td>4.23%</td><td>1,442</td><td>40</td><td>8</td><td style="color:var(--green)">1.05</td></tr>
+  <tr><td class="nm">Mulmul (search) ⚠</td><td>5,782</td><td>415</td><td>5.01%</td><td>698</td><td>11</td><td>1</td><td style="color:var(--red)">0.25</td></tr>
+  <tr><td class="nm">Silk Saree</td><td>5,857</td><td>569</td><td>4.13%</td><td>425</td><td>6</td><td>2</td><td style="color:var(--saffron2)">0.90</td></tr>
+  <tr><td class="nm">Cotton Saree</td><td>78</td><td>962</td><td>17.3%</td><td>14</td><td>0</td><td>0</td><td style="color:var(--dim)">0.00</td></tr>
+  <tr><td class="nm">Boost (no dest) ⚠</td><td>1,059</td><td>12</td><td>0.42%</td><td>369</td><td>0</td><td>0</td><td style="color:var(--dim)">0.00</td></tr>
+  <tr><td class="nm" style="border-top:2px solid var(--line)"><b>Total</b></td><td style="border-top:2px solid var(--line)"><b>78,047</b></td><td style="border-top:2px solid var(--line)"><b>283</b></td><td style="border-top:2px solid var(--line)"><b>2.85%</b></td><td style="border-top:2px solid var(--line)"><b>7,863</b></td><td style="border-top:2px solid var(--line)"><b>217</b></td><td style="border-top:2px solid var(--line)"><b>47</b></td><td style="border-top:2px solid var(--line);color:var(--green)"><b>1.13</b></td></tr>
+  </table></div>
+
+  <h2><span class="n">04</span>Meta collection view — by destination URL (May 1–19)</h2>
+  <p class="lead">The same collections a month earlier — the baseline the June numbers fell from.</p>
+  <div style="overflow-x:auto"><table>
+  <tr><th>Collection</th><th>Spend ₹</th><th>CPM ₹</th><th>CTR</th><th>Clicks</th><th>ATC</th><th>Pur</th><th>ROAS</th></tr>
+  <tr><td class="nm">Cotton Trending</td><td>13,959</td><td>347</td><td>5.34%</td><td>2,149</td><td>61</td><td>15</td><td style="color:var(--green)">2.09</td></tr>
+  <tr><td class="nm">Qala Rajasthani (Bagru)</td><td>23,139</td><td>407</td><td>3.95%</td><td>2,248</td><td>92</td><td>14</td><td style="color:var(--green)">1.77</td></tr>
+  <tr><td class="nm">Mulmul Cotton Banarasi</td><td>18,996</td><td>398</td><td>4.27%</td><td>2,040</td><td>94</td><td>23</td><td style="color:var(--green)">2.28</td></tr>
+  <tr><td class="nm">Mulmul (search) ⚠</td><td>10,704</td><td>362</td><td>4.63%</td><td>1,368</td><td>48</td><td>7</td><td style="color:var(--saffron2)">0.95</td></tr>
+  <tr><td class="nm">Silk Saree</td><td>3,716</td><td>823</td><td>3.59%</td><td>162</td><td>6</td><td>0</td><td style="color:var(--dim)">0.00</td></tr>
+  <tr><td class="nm" style="border-top:2px solid var(--line)"><b>Total</b></td><td style="border-top:2px solid var(--line)"><b>70,514</b></td><td style="border-top:2px solid var(--line)"><b>394</b></td><td style="border-top:2px solid var(--line)"><b>4.45%</b></td><td style="border-top:2px solid var(--line)"><b>7,967</b></td><td style="border-top:2px solid var(--line)"><b>301</b></td><td style="border-top:2px solid var(--line)"><b>59</b></td><td style="border-top:2px solid var(--line);color:var(--green)"><b>1.75</b></td></tr>
+  </table></div>
+  <div class="note">ROAS shift May→Jun by collection: Cotton Trending <b>2.09→1.61</b> (spend +130%, now 41% of Meta budget — diluted as it scaled, CTR 5.34%→3.92% signals fatigue); Qala Rajasthani <b>1.77→0.79</b> (biggest efficiency loss); Mulmul Cotton Banarasi <b>2.28→1.05</b>; Mulmul-search <b>0.95→0.25</b> (misrouted page, pause/fix); Silk Saree <b>0.00→0.90</b> (only improver).</div>
+
+  <h2><span class="n">05</span>What this means &amp; next steps</h2>
+  <div class="note" style="border-style:solid;color:var(--muted)">
+  1. <b>Rebalance Meta.</b> Cotton Trending's 3× ramp diluted it to 1.61; cap its tail and rebuild Qala Rajasthani &amp; Mulmul, which ran 1.8–2.3 in May.<br>
+  2. <b>Protect Google's efficiency.</b> Google scaled down −33% yet returned more — don't starve it; it's catching high-intent demand.<br>
+  3. <b>Kill the waste.</b> Pause the ₹1,059 boost (0 sales) and re-point the /search?q=mulmul ad (0.25 ROAS) to the Mulmul collection.<br>
+  4. <b>Finalise true blended ROAS.</b> Reconcile Shopify net revenue (refund-netted) ÷ ₹1.02L blended spend — the one number that cuts through the Meta-vs-Google attribution overlap.
   </div>
 
   <div class="foot">
-    <span>House of Qalakari · Meta deep-dive · 20–31 May vs 1–5 Jun 2026</span>
+    <span>House of Qalakari · Cross-channel MTD comparison · 1–19 Jun vs 1–19 May 2026</span>
     <span>Data: Windsor.ai live pull · figures in ₹ INR</span>
   </div>
 </div>
-
-<script>
-const fmt=(n,d=0)=>n.toLocaleString('en-IN',{maximumFractionDigits:d,minimumFractionDigits:d});
-const pct=(a,b)=>b?((a-b)/b*100):0;
-const arrow=v=>v>0?'up':(v<0?'down':'flat');
-const sign=v=>(v>0?'▲ ':(v<0?'▼ ':'• '))+fmt(Math.abs(v),1)+'%';
-
-// account totals  [may, june]
-const T={spend:[43923,19848],impr:[103318,124657],clicks:[4182,1787],lpv:[2947,978],
-  atc:[98,40],pur:[25,5],rev:[38743,8852],roas:[0.88,0.45],cpm:[425,159],ctr:[4.05,1.43]};
-const kpis=[
-  ['Spend','₹'+fmt(T.spend[1]),'was ₹'+fmt(T.spend[0]),null],
-  ['Purchases',fmt(T.pur[1]),'was '+fmt(T.pur[0]),pct(T.pur[1],T.pur[0])],
-  ['Revenue','₹'+fmt(T.rev[1]),'was ₹'+fmt(T.rev[0]),pct(T.rev[1],T.rev[0])],
-  ['ROAS',T.roas[1].toFixed(2),'was '+T.roas[0].toFixed(2),pct(T.roas[1],T.roas[0])],
-  ['Clicks',fmt(T.clicks[1]),'was '+fmt(T.clicks[0]),pct(T.clicks[1],T.clicks[0])],
-  ['Landing views',fmt(T.lpv[1]),'was '+fmt(T.lpv[0]),pct(T.lpv[1],T.lpv[0])],
-  ['Add to cart',fmt(T.atc[1]),'was '+fmt(T.atc[0]),pct(T.atc[1],T.atc[0])],
-  ['Cost / purchase','₹3,970','was ₹1,757',pct(3970,1757)],
-];
-document.getElementById('kpis').innerHTML=kpis.map(k=>`
-  <div class="kpi"><div class="l">${k[0]}</div><div class="v">${k[1]}</div>
-  ${k[3]===null?`<div class="was">${k[2]}</div>`:`<div class="d ${arrow(k[3])}">${sign(k[3])}</div><div class="was">${k[2]}</div>`}</div>`).join('');
-
-// collection funnels: name:[tag, may{...}, jun{...}]
-const C={
- 'Cotton Trending':['bleed',
-    {sp:17024,cpm:416,ctr:4.20,cl:1718,lpv:1271,atc:34,pur:11,roas:1.06},
-    {sp:10344,cpm:508,ctr:3.79,cl:771,lpv:538,atc:21,pur:2,roas:0.32}],
- 'Qala Rajasthani (Bagru)':['win',
-    {sp:11811,cpm:458,ctr:4.02,cl:1037,lpv:724,atc:38,pur:7,roas:0.97},
-    {sp:3596,cpm:422,ctr:4.10,cl:350,lpv:243,atc:8,pur:2,roas:1.16}],
- 'Mulmul Cotton Banarasi':['bleed',
-    {sp:14295,cpm:412,ctr:3.92,cl:1362,lpv:914,atc:26,pur:7,roas:0.64},
-    {sp:4153,cpm:581,ctr:3.30,cl:236,lpv:160,atc:11,pur:1,roas:0.33}],
-};
-function funnel(d,cls){
-  const max=d.cl||1;
-  const steps=[['Clicks',d.cl],['Landing views',d.lpv],['Add to cart',d.atc],['Purchases',d.pur]];
-  let html='<div class="funnel">';
-  steps.forEach((s,i)=>{
-    const w=Math.max(6, s[1]/max*100);
-    html+=`<div class="step ${cls}"><div class="fill" style="width:${w}%"></div>
-      <span class="sl">${s[0]}</span><span class="sv">${fmt(s[1])}</span></div>`;
-    if(i<steps.length-1){
-      const r=steps[i+1][1]/(s[1]||1)*100;
-      html+=`<div class="rate">↓ <b>${fmt(r,1)}%</b></div>`;
-    }
-  });
-  return html+'</div>';
-}
-document.getElementById('colls').innerHTML=Object.entries(C).map(([nm,v])=>{
-  const tag=v[0], m=v[1], j=v[2];
-  const tagtxt=tag==='win'?'Only profitable page →':'Bleeding ROAS →';
-  return `<div class="coll">
-    <div class="coll-head"><span class="nm">${nm}</span>
-      <span class="tag ${tag}">${tagtxt} May ${m.roas.toFixed(2)} · Jun ${j.roas.toFixed(2)}</span></div>
-    <div class="coll-grid">
-      <div class="period">
-        <div class="ph"><span>● May 20–31</span><span class="roas">₹${fmt(m.sp)} · CPM ₹${fmt(m.cpm)} · CTR ${m.ctr}%</span></div>
-        ${funnel(m,'')}
-        <div class="statrow"><span class="s">ATC% <b>${fmt(m.atc/m.lpv*100,1)}</b></span><span class="s">Cart→buy <b>${fmt(m.pur/m.atc*100,1)}%</b></span><span class="s">Rev <b>₹${fmt(m.sp*m.roas)}</b></span></div>
-      </div>
-      <div class="period j">
-        <div class="ph"><span style="color:var(--indigo)">● Jun 1–5</span><span class="roas">₹${fmt(j.sp)} · CPM ₹${fmt(j.cpm)} · CTR ${j.ctr}%</span></div>
-        ${funnel(j,'j')}
-        <div class="statrow"><span class="s">ATC% <b>${fmt(j.atc/j.lpv*100,1)}</b></span><span class="s">Cart→buy <b>${fmt(j.pur/j.atc*100,1)}%</b></span><span class="s">Rev <b>₹${fmt(j.sp*j.roas)}</b></span></div>
-      </div>
-    </div></div>`;
-}).join('');
-
-// big table - all destinations both periods
-const big={
- 'Cotton Trending':[[17024,416,4.20,1718,1271,34,11,2.7,32.4,1.06],[10344,508,3.79,771,538,21,2,3.9,9.5,0.32]],
- 'Mulmul Cotton Banarasi':[[14295,412,3.92,1362,914,26,7,2.8,26.9,0.64],[4153,581,3.30,236,160,11,1,6.9,9.1,0.33]],
- 'Qala Rajasthani (Bagru)':[[11811,458,4.02,1037,724,38,7,5.2,18.4,0.97],[3596,422,4.10,350,243,8,2,3.3,25.0,1.16]],
- 'Silk Saree':[[265,346,1.95,15,11,0,0,0,0,0],[420,744,4.60,26,17,0,0,0,0,0]],
- 'Cotton Saree':[[105,507,5.31,11,7,0,0,0,0,0],[78,962,17.28,14,9,0,0,0,0,0]],
- 'Search page ⚠ broken':[[282,601,4.26,20,15,0,0,0,0,0],[199,626,6.60,21,11,0,0,0,0,0]],
- 'FB Instant Exp ⚠':[[140,317,4.29,19,5,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0]],
- 'Boost (no dest) ⚠':[[0,0,0,0,0,0,0,0,0,0],[1058,12,0.42,369,0,0,0,0,0,0]],
-};
-let th='<tr><th>Destination</th><th>Per</th><th>Spend</th><th>CPM</th><th>CTR%</th><th>Clicks</th><th>LPV</th><th>ATC</th><th>Pur</th><th>ATC%</th><th>Pur%</th><th>ROAS</th></tr>';
-let rows='';
-const maxsp=17024;
-for(const [nm,pr] of Object.entries(big)){
-  ['May','Jun'].forEach((p,i)=>{
-    const r=pr[i]; if(r[0]===0 && r[3]===0 && p==='Jun' && nm.includes('Instant'))return;
-    rows+=`<tr><td class="nm">${i===0?nm:'<span class=muted>↳</span>'}</td>
-      <td class="muted">${p}</td>
-      <td><span class="bar ${i?'j':''}" style="width:${Math.max(2,r[0]/maxsp*44)}px"></span>${fmt(r[0])}</td>
-      <td>${fmt(r[1])}</td><td>${r[2].toFixed(2)}</td><td>${fmt(r[3])}</td><td>${fmt(r[4])}</td>
-      <td>${fmt(r[5])}</td><td>${fmt(r[6])}</td><td>${r[7].toFixed(1)}</td><td>${r[8].toFixed(1)}</td>
-      <td style="color:${r[9]>=1?'var(--green)':(r[9]>0?'var(--saffron2)':'var(--dim)')}">${r[9].toFixed(2)}</td></tr>`;
-  });
-}
-document.getElementById('bigtable').innerHTML=th+rows;
-
-// age x gender table
-const ag={
- May:[['F 55–64',922,22.1,4.69,9],['F 45–54',856,20.5,4.48,7],['F 65+',797,19.1,6.29,2],['F 35–44',450,10.8,3.63,3],['F 25–34',217,5.2,2.77,0],['M 65+',214,5.1,4.86,0],['M 35–44',200,4.8,2.90,1],['M 45–54',184,4.4,2.51,2],['M 55–64',168,4.0,2.80,0],['M 25–34',106,2.5,2.08,0]],
- Jun:[['F 55–64',554,31.1,1.84,1],['F 65+',370,20.8,2.26,0],['F 45–54',312,17.5,1.08,0],['F 35–44',183,10.3,1.05,1],['F 25–34',94,5.3,0.58,1],['M 65+',71,4.0,4.95,0],['M 55–64',54,3.0,2.84,0],['M 35–44',47,2.6,2.42,1],['M 45–54',40,2.2,1.90,0],['M 25–34',30,1.7,1.47,1]],
-};
-function segTable(el,data,maxc){
-  let h='<tr><th>Segment</th><th>May clk%</th><th>Jun clk%</th><th>May buys</th><th>Jun buys</th></tr>';
-  const mMap=Object.fromEntries(data.May.map(r=>[r[0],r])), jMap=Object.fromEntries(data.Jun.map(r=>[r[0],r]));
-  const keys=data.May.map(r=>r[0]);
-  keys.forEach(k=>{
-    const m=mMap[k]||[k,0,0,0,0], j=jMap[k]||[k,0,0,0,0];
-    h+=`<tr><td class="nm">${k}</td>
-      <td><span class="bar" style="width:${m[2]/maxc*40}px"></span>${m[2].toFixed(1)}</td>
-      <td><span class="bar j" style="width:${j[2]/maxc*40}px"></span>${j[2].toFixed(1)}</td>
-      <td>${m[4]}</td><td style="color:${j[4]<m[4]?'var(--red)':'var(--paper)'}">${j[4]}</td></tr>`;
-  });
-  document.getElementById(el).innerHTML=h;
-}
-segTable('agtable',ag,32);
-
-// geo
-const geo={
- May:[['Maharashtra',53.1],['Karnataka',26.6],['Telangana',7.3],['Tamil Nadu',5.9],['Andhra Pr.',3.3],['Kerala',3.1],['Odisha',0.6]],
- Jun:[['Maharashtra',42.9],['Karnataka',41.9],['Delhi',4.7],['Telangana',3.9],['Tamil Nadu',2.7],['Kerala',2.4],['Andhra Pr.',0.8]],
-};
-let gh='<tr><th>State</th><th>May clk%</th><th>Jun clk%</th></tr>';
-const jm=Object.fromEntries(geo.Jun.map(r=>[r[0],r[1]]));
-const keys=[...new Set([...geo.May.map(r=>r[0]),...geo.Jun.map(r=>r[0])])];
-const mm=Object.fromEntries(geo.May.map(r=>[r[0],r[1]]));
-keys.sort((a,b)=>(jm[b]||0)-(jm[a]||0));
-keys.forEach(k=>{
-  const m=mm[k]||0,j=jm[k]||0;
-  gh+=`<tr><td class="nm">${k}</td>
-    <td><span class="bar" style="width:${m/53*52}px"></span>${m.toFixed(1)}</td>
-    <td><span class="bar j" style="width:${j/53*52}px"></span>${j.toFixed(1)}</td></tr>`;
-});
-document.getElementById('geotable').innerHTML=gh;
-</script>
 </body>
 </html>
